@@ -6,6 +6,11 @@ defmodule MarvelApi.ComicsTest do
     assert 200 == response["code"]
   end
 
+  test ".all with timeout" do
+    response = MarvelApi.Comics.all([], [timeout: 30000, recv_timeout: 30000])
+    assert 200 == response["code"]
+  end
+
   test ".get" do
     response = MarvelApi.Comics.get("21478")
     assert 200 == response["code"]

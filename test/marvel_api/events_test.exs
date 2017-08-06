@@ -6,6 +6,11 @@ defmodule MarvelApi.EventsTest do
     assert 200 == response["code"]
   end
 
+  test ".all with timeout" do
+    response = MarvelApi.Events.all([], [timeout: 30000, recv_timeout: 30000])
+    assert 200 == response["code"]
+  end
+
   test ".get" do
     response = MarvelApi.Events.get("116")
     assert 200 == response["code"]

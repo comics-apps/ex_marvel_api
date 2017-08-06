@@ -6,6 +6,11 @@ defmodule MarvelApi.CreatorsTest do
     assert 200 == response["code"]
   end
 
+  test ".all with timeout" do
+    response = MarvelApi.Creators.all([], [timeout: 30000, recv_timeout: 30000])
+    assert 200 == response["code"]
+  end
+
   test ".get" do
     response = MarvelApi.Creators.get("7968")
     assert 200 == response["code"]

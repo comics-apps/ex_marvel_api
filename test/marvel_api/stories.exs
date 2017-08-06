@@ -1,43 +1,43 @@
-defmodule MarvelApi.SeriesTest do
+defmodule MarvelApi.StoriesTest do
   use ExUnit.Case
 
   test ".all" do
-    response = MarvelApi.Series.all
+    response = MarvelApi.Stories.all
     assert 200 == response["code"]
   end
 
   test ".all with timeout" do
-    response = MarvelApi.Series.all([], [timeout: 30000, recv_timeout: 30000])
+    response = MarvelApi.Stories.all([], [timeout: 30000, recv_timeout: 30000])
     assert 200 == response["code"]
   end
 
   test ".get" do
-    response = MarvelApi.Series.get("18454")
+    response = MarvelApi.Stories.get("15915")
     assert 200 == response["code"]
   end
 
   test ".characters" do
-    response = MarvelApi.Series.characters("18454")
+    response = MarvelApi.Stories.characters("15915")
     assert 200 == response["code"]
   end
 
   test ".comics" do
-    response = MarvelApi.Series.comics("18454")
+    response = MarvelApi.Stories.comics("15915")
     assert 200 == response["code"]
   end
 
   test ".creators" do
-    response = MarvelApi.Series.creators("18454")
+    response = MarvelApi.Stories.creators("15915")
     assert 200 == response["code"]
   end
 
   test ".events" do
-    response = MarvelApi.Series.events("18454")
+    response = MarvelApi.Stories.events("15915")
     assert 200 == response["code"]
   end
 
-  test ".stories" do
-    response = MarvelApi.Series.stories("18454")
+  test ".series" do
+    response = MarvelApi.Stories.series("15915")
     assert 200 == response["code"]
   end
 end

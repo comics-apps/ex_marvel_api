@@ -9,13 +9,13 @@ defmodule MarvelApi do
     JSX.decode!(body)
   end
 
-  def request(endpoint, params \\ []) do
+  def request(endpoint, params \\ [], options \\ []) do
     ts = :os.system_time(:seconds)
            |> Integer.to_string
     hash = :crypto.hash(:md5, ts <> MarvelApi.private_key <> MarvelApi.public_key)
              |> Base.encode16(case: :lower)
     new_params = Enum.concat([ts: ts, hash: hash, apikey: MarvelApi.public_key], params)
-    MarvelApi.get!(endpoint <> "?" <> URI.encode_query(new_params)).body
+    MarvelApi.get!(endpoint <> "?" <> URI.encode_query(new_params), [], options).body
   end
 
   def public_key do

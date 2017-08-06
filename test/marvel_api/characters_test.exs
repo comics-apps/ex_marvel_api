@@ -6,6 +6,11 @@ defmodule MarvelApi.CharactersTest do
     assert 200 == response["code"]
   end
 
+  test ".all with timeout" do
+    response = MarvelApi.Characters.all([], [timeout: 30000, recv_timeout: 30000])
+    assert 200 == response["code"]
+  end
+
   test ".get" do
     response = MarvelApi.Characters.get("1011334")
     assert 200 == response["code"]

@@ -1,25 +1,30 @@
 defmodule MarvelApi.Comics do
-  def all(params \\ []) do
-    MarvelApi.request("comics", params)
+  def all(params \\ [], options \\ []) do
+    MarvelApi.request("comics", params, options)
   end
 
-  def get(id) do
-    MarvelApi.request("comics/" <> id)
+  def get(id, options \\ []) do
+    uri = "comics/" <> id
+    MarvelApi.request(uri, [], options)
   end
 
-  def characters(comic_id, params \\ []) do
-    MarvelApi.request("comics/" <> comic_id <> "/characters", params)
+  def characters(comic_id, params \\ [], options \\ []) do
+    uri = "comics/" <> comic_id <> "/characters"
+    MarvelApi.request(uri, params, options)
   end
 
-  def creators(comic_id, params \\ []) do
-    MarvelApi.request("comics/" <> comic_id <> "/creators", params)
+  def creators(comic_id, params \\ [], options \\ []) do
+    uri = "comics/" <> comic_id <> "/creators"
+    MarvelApi.request(uri, params, options)
   end
 
-  def events(comic_id, params \\ []) do
-    MarvelApi.request("comics/" <> comic_id <> "/events", params)
+  def events(comic_id, params \\ [], options \\ []) do
+    uri = "comics/" <> comic_id <> "/events"
+    MarvelApi.request(uri, params, options)
   end
 
-  def stories(comic_id, params \\ []) do
-    MarvelApi.request("comics/" <> comic_id <> "/stories", params)
+  def stories(comic_id, params \\ [], options \\ []) do
+    uri = "comics/" <> comic_id <> "/stories"
+    MarvelApi.request(uri, params, options)
   end
 end
